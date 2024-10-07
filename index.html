@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Speech To Text</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>SPEECH TO TEXT</h1>
+            <p>by</p>
+            <p>ROHAN VERMA</p>
+        </header>
+
+        <button id="record">Record Audio</button>
+
+        <div class="container">
+            <div id="output"></div>
+        </div>
+
+        <script type="text/javascript">
+            const recordButton = document.getElementById("record");
+            const outputDiv = document.getElementById("output");
+
+            // Check if the browser supports SpeechRecognition
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (SpeechRecognition) {
+                const recognition = new SpeechRecognition();
+                recognition.lang = "en-US";
+
+                // When speech recognition service starts
+                recognition.onstart = function() {
+                    recordButton.innerHTML= "Listening..."
+                };
+
+                // When speech recognition service gets results
+                recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript;
+                    outputDiv.innerHTML = `${transcript}`;
+                    recordButton.innerHTML= "Record Audio"
+                };
+
+                // If speech recognition encounters an error
+                recognition.onerror = function(event) {
+                    outputDiv.innerHTML = `Error occurred: ${event.error}`;
+                    recordButton.innerHTML= "Record Audio"
+                };
+
+                // On button click, start recognition
+                recordButton.addEventListener("click", function() {
+                    recognition.start();
+                });
+            } else {
+                outputDiv.innerHTML = "Your browser does not support Speech Recognition.";
+                recordButton.innerHTML= "Try Again"
+            }
+        </script>
+
+        <py-script>
+        </py-script>
+    </body>
+</html>

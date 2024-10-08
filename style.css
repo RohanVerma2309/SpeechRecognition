@@ -13,22 +13,22 @@ header {
     border-bottom: 5px solid white;
 }
 
-h1 {
+header h1 {
     font-weight: bolder;
     font-size: 50px;
     letter-spacing: 10px;
     word-spacing: 20px;
 }
 
-p{
+header p{
     font-size: 22px;
     letter-spacing: 8px;
     font-style: italic;
     word-spacing: 15px;
 }
 
-button{
-    margin-left: 90vh;
+#record{
+    margin-left: 43%;
     margin-top: 70px;
     padding: 20px 50px;
     border-radius: 10px;
@@ -40,7 +40,7 @@ button{
     font-weight: 600;
 }
 
-button:hover{
+#record:hover{
     background-color: orange;
     cursor: pointer;
     border-color: white;
@@ -52,11 +52,31 @@ button:hover{
 
 .container{
     margin: 70px auto;
-    max-width: 90vw;
+    max-width: 95vw;
     background-color: white;
     border-radius: 20px;
     padding: 10px 15px;
-    font-size: 28px;
+    font-size: 22px;
     max-height: fit-content;
     border: 5px solid orange;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    }
+
+.copyBtn{
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: 3px solid orange;
+    background-color: white;
+    color: black;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.copyBtn:hover{
+    cursor: pointer;
+    background-color: #252525;
+    color: orange;
+    transition: ease-in-out 0.5s;
 }
